@@ -71,6 +71,7 @@ export default class Pdf extends Component {
         onPageSingleTap: PropTypes.func,
         onScaleChanged: PropTypes.func,
         onPressLink: PropTypes.func,
+        onScrollChanged: PropTypes.func,
 
         // Props that are not available in the earlier react native version, added to prevent crashed on android
         accessibilityLabel: PropTypes.string,
@@ -112,6 +113,9 @@ export default class Pdf extends Component {
         onScaleChanged: (scale) => {
         },
         onPressLink: (url) => {
+        },
+        onScrollChanged: (contentOffset, newContentOffset) => {
+
         },
     };
 

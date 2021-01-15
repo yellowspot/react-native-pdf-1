@@ -40,6 +40,7 @@ export default class PdfView extends Component {
         singlePage: PropTypes.bool,
         onPageSingleTap: PropTypes.func,
         onScaleChanged: PropTypes.func,
+        onScrollChanged: PropTypes.func,
     };
 
     static defaultProps = {
@@ -60,6 +61,8 @@ export default class PdfView extends Component {
         onPageSingleTap: (page, x, y) => {
         },
         onScaleChanged: (scale) => {
+        },
+        onScrollChanged: (contentOffset, newContentOffset) => {
         },
     };
 
@@ -321,6 +324,9 @@ export default class PdfView extends Component {
 
     _onScroll = (e) => {
         this.setState({contentOffset: e.nativeEvent.contentOffset, newContentOffset: e.nativeEvent.contentOffset});
+        if (this.props.onScrollChanged) {
+            this.props.onScrollChanged(e.nativeEvent.contentOffset)
+        }
     };
 
     _onListContentSizeChange = (contentWidth, contentHeight) => {
